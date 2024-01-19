@@ -43,16 +43,22 @@ public class InterfaceCreator {
             if (Character.isUpperCase(value.charAt(0))  && value.charAt(value.length()-1)=='.'){
                 String str=value;
                 int count=0;
-                while (true){
+                boolean isIn=false;
+                int indexIn=str.indexOf(" in");
+//                if(indexIn!=-1){
+//                    str=str.substring(0,indexIn)+str.substring(indexIn+3);
+//                    isIn=true;
+//                }
+                while (true && !isIn){
                     int index=str.indexOf(" ");
                     if(index!=-1){
                         count++;
                     }else {
-                        break;
+                           break;
                     }
                     str=str.substring(index+1);
                 }
-                if (count>3){
+                if (count>=3){
                     supplier.get().add(value);
                 }
             }
